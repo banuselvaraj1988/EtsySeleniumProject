@@ -22,6 +22,16 @@ public class HellowWorld {
 	        wDriver = new InternetExplorerDriver(options);
 	        wDriver.manage().window().maximize();
 	        wDriver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		  
+		     //page title assertion
+		   String actualTitle = driver.getTitle();
+		   driver.manage().window().maximize();
+		   String expectedTitle = "Etsy.com | Shop for anything from creative people everywhere";
+		   if(actualTitle.equalsIgnoreCase(expectedTitle))
+		   System.out.println("Title Matched");
+		   else
+		   System.out.println("Title didn't match");
+		   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	        
 	        wDriver.get("https://www.etsy.com/");
 	        
